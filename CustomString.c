@@ -13,6 +13,7 @@ string_t *concat_strings(string_t *string1, string_t *string2);
 string_t *get_slice(string_t *string, int first, int second);
 string_t *string_dup(string_t *string);
 unsigned compute_len(char *str);
+unsigned string_compare(string_t *string1, string_t *string2);
 int find_substring(string_t *string, char *substring);
 void string_replace(string_t *string, string_t *old, string_t *new);
 void string_append(string_t *string, char *str);
@@ -220,4 +221,20 @@ void string_replace(string_t *string, string_t *old, string_t *new)
         temp->str[i] = temp_to_change[i];
     }
     temp->str[i] = '\0';
+}
+
+unsigned string_compare(string_t *string1, string_t *string2)
+{
+    unsigned char uc1, uc2;
+
+    while(*(string1->str) != '\0' && *(string1->str) == *(string2->str)
+    {
+        string1->str++;
+        string2->str++;
+    }
+
+    uc1 = (*(unsigned char *) string1->str);
+    uc2 = (*(unsigned char *) string2->str);
+
+    return ((uc1 < uc2) ? -1 : (uc1 > uc2));
 }
