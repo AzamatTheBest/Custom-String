@@ -49,6 +49,8 @@ void test()
     printf("\n");
     print_string(new, stdout);
     printf("\n");
+
+    printf("%d\n", string_compare(var, another));
 }
 
 unsigned compute_len(char *str)
@@ -227,7 +229,7 @@ unsigned string_compare(string_t *string1, string_t *string2)
 {
     unsigned char uc1, uc2;
 
-    while(*(string1->str) != '\0' && *(string1->str) == *(string2->str)
+    while(*(string1->str) != '\0' && *(string1->str) == *(string2->str))
     {
         string1->str++;
         string2->str++;
