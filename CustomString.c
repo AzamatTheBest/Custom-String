@@ -18,6 +18,7 @@ int find_substring(string_t *string, char *substring);
 void string_replace(string_t *string, string_t *old, string_t *new);
 void string_append(string_t *string, char *str);
 void print_string(string_t *string, FILE *out);
+void reverse_string(string_t *string);
 
 void test(void);
 
@@ -48,6 +49,12 @@ void test()
     print_string(var, stdout);
     printf("\n");
     print_string(new, stdout);
+    printf("\n");
+
+    print_string(ba, stdout);
+    printf("\n");
+    reverse_string(ba);
+    print_string(ba, stdout);
     printf("\n");
 
     printf("%d\n", string_compare(var, another));
@@ -239,4 +246,17 @@ unsigned string_compare(string_t *string1, string_t *string2)
     uc2 = (*(unsigned char *) string2->str);
 
     return ((uc1 < uc2) ? -1 : (uc1 > uc2));
+}
+
+void reverse_string(string_t *string)
+{
+    char temp;
+    int i;
+
+    for (i = 0; i < string->length/2; i++)
+    {
+        temp = string->str[i];
+        string->str[i] = string->str[string->length - i - 1];
+        string->str[string->length - i - 1] = temp;
+    }
 }
